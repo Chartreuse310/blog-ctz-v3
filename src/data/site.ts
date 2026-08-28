@@ -1,6 +1,4 @@
-const siteOrigin = (import.meta.env.SITE_URL ?? 'https://example.org').replace(/\/$/, '');
-const basePath = import.meta.env.BASE_URL.replace(/\/$/, '');
-const siteUrl = `${siteOrigin}${basePath}`;
+const siteUrl = new URL(import.meta.env.BASE_URL, import.meta.env.SITE).toString().replace(/\/+$/, '');
 
 export const site = {
   name: 'Blog CTZ',
