@@ -7,7 +7,7 @@ publishedAt: 2026-07-07
 updatedAt: 2026-08-28
 author: "沙楚子"
 tags: [PKM, LLM-wiki]
-featured: true
+featured: false
 minutes: 6
 column: "play with AI"
 columnOrder: 1
