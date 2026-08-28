@@ -6,7 +6,7 @@ translationKey: riegl-modern-cult
 publishedAt: 2023-09-06
 updatedAt: 2026-08-28
 tags: [文化遗产保护, 艺术史, 读书笔记]
-minutes: 25
+minutes: 20
 draft: false
 ---
 
