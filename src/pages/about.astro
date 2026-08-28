@@ -1,0 +1,6 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../data/site';
+---
+<BaseLayout title="关于 · Fourfold"><article class="page narrow"><p class="eyebrow">About</p><h1>你好，我是 {site.author.name}。</h1><p class="lead">{site.author.bio}</p><h2>这个站点是什么</h2><p>这里可以放你的职业方向、长期写作主题、项目经历和合作方式。Fourfold 把它们组织成一个可持续的个人出版物，而不是一页简历。</p><h2>公开边界</h2><p>公开内容应当经过必要的脱敏，不包含业务内部数据或他人的隐私。你可以在这里明确自己的授权、引用和联系方式。</p><h2>合作</h2><p>如果你提供咨询、顾问或写作服务，可以在此写清楚适合帮助什么问题，以及如何联系你。</p></article></BaseLayout>
+<style>.page{padding:5rem 0}.page h1{font-size:clamp(3rem,8vw,6rem);line-height:.95;letter-spacing:-.07em;margin:.5rem 0 2rem}.page h2{margin-top:3rem;font-size:1.5rem}.page p{max-width:40rem}.lead{font-size:1.5rem;color:var(--muted)}</style>
