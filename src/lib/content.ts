@@ -63,7 +63,7 @@ export function researchPath(entry: CollectionEntry<'research'>) {
   const date = entry.data.publishedAt;
   return sitePath(`/research/${date.getFullYear()}/${String(date.getMonth() + 1).padStart(2, '0')}/${slugFromId(entry.id)}/`);
 }
-export function photoPath(entry: CollectionEntry<'photos'>) { return sitePath(`/photos/${entry.data.slug}/`); }
+export function designPath(entry: CollectionEntry<'design'>) { return sitePath(`/design/${entry.data.slug}/`); }
 export function linkSlug(entry: CollectionEntry<'links'>) { return slugFromId(entry.id); }
 
 export function excerpt(text: string, length = 180) {

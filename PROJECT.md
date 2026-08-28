@@ -10,7 +10,7 @@ Fourfold 是一个面向独立作者、工程师、研究者和创作者的静�
 - 专栏按顺序组织学习；
 - 标签提供横向发现；
 - 项目和研究提供实践证据；
-- 影像和友链表达作者的其他兴趣；
+- 设计和友链表达作者的其他兴趣；
 - 开始页帮助新读者找到入口；
 - RSS、搜索和收藏支持长期回访。
 
@@ -18,7 +18,7 @@ Fourfold 是一个面向独立作者、工程师、研究者和创作者的静�
 
 本项目研究了一个公开的编辑型个人出版物站点。源站最值得抽象的是一套“个人出版物”信息架构，而不是视觉复制：
 
-1. 内容类型与阅读方式分离：写作、项目、研究、影像是内容类型；专栏、标签、搜索和收藏是阅读方式。
+1. 内容类型与阅读方式分离：写作、项目、研究、设计是内容类型；专栏、标签、搜索和收藏是阅读方式。
 2. 首页同时承担品牌介绍、精选、最近更新和内容分区导流。
 3. 专栏是有篇序的阅读路径，不是普通分类。
 4. 标签是跨年份、跨专栏的横向索引。
@@ -83,9 +83,9 @@ Fourfold 是一个面向独立作者、工程师、研究者和创作者的静�
 ## 当前交付
 
 - Astro 静态构建基础。
-- 六种内容集合：writing、columns、projects、research、photos、links。
+- 六种内容集合：writing、columns、projects、research、design、links。
 - 写作首页、分页、年份归档、文章详情和自动目录。
-- 专栏、标签、项目、研究、影像、关于、友链、开始页。
+- 专栏、标签、项目、研究、设计、关于、友链、开始页。
 - 支持 `?q=` 的浏览器端全文匹配、静态搜索索引、收藏、主题切换、复制链接。
 - RSS、sitemap、动态 robots、404、Open Graph 与 `BlogPosting` JSON-LD。
 - 内容一致性校验：必填字段、重复 translationKey/URL、专栏关联和资源引用。
@@ -125,7 +125,7 @@ flowchart LR
     C[columns\n专栏与篇序]
     P[projects\n项目状态]
     R[research\n研究版本]
-    G[photos\n影像集合]
+    G[design\n设计集合]
     L[links\n友链]
   end
 
@@ -211,7 +211,7 @@ flowchart TD
 | 标签 | writing | 横向主题索引 | `/tags/slug/` |
 | 项目 | projects | 状态、类型、项目详情 | `/projects/YYYY/MM/slug/` |
 | 研究 | research | 类型、版本、摘要 | `/research/YYYY/MM/slug/` |
-| 影像 | photos | 画廊、图片 alt、封面 | `/photos/slug/` |
+| 设计 | design | 画廊、图片 alt、封面 | `/design/slug/` |
 | 搜索 | writing | query、全文轻量匹配 | `/search/?q=...` |
 | 收藏 | localStorage | 当前设备收藏列表 | `/favorites/` |
 

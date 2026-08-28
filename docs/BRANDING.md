@@ -12,7 +12,7 @@ It is designed for independent writers, engineers, researchers, and creators who
 - Cross-content tags
 - Project archive with lifecycle status
 - Versioned research notes
-- Photo essays
+- Design galleries
 - Client-side search with a generated static index
 - Local browser favorites
 - Light and dark themes
@@ -38,7 +38,7 @@ Most blog starters focus on rendering Markdown and listing recent posts. A Quiet
 - **Columns** provide an intentional reading order.
 - **Tags** support lateral exploration.
 - **Projects and research** document practice and evidence.
-- **Photo essays** support visual work.
+- **Design galleries** support visual work.
 - **Start, search, favorites, and RSS** help readers enter and return.
 
 The implementation remains static-first. Build-time code produces pages, feeds, indexes, and metadata. Browser JavaScript is limited to search, theme selection, favorites, and link copying.

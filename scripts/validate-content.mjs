@@ -31,7 +31,7 @@ function relative(entry) {
   return path.relative(root, entry.file);
 }
 
-const collections = ['writing', 'columns', 'projects', 'research', 'photos', 'links'];
+const collections = ['writing', 'columns', 'projects', 'research', 'design', 'links'];
 const entries = new Map();
 for (const collection of collections) {
   const directory = path.join(contentRoot, collection);
@@ -45,11 +45,11 @@ for (const collection of collections) {
     if (isDraft(entry)) continue;
     if (['writing', 'projects', 'research'].includes(collection) && !entry.data.publishedAt) errors.push(`${relative(entry)}: missing publishedAt`);
     if (collection === 'links' && !/^https?:\/\//.test(entry.data.url ?? '')) errors.push(`${relative(entry)}: url must use http(s)`);
-    if (collection === 'photos') {
+    if (collection === 'design') {
       const assets = [entry.data.cover, ...(Array.isArray(entry.data.photos) ? entry.data.photos.map((photo) => photo?.src) : [])].filter(Boolean);
       for (const asset of assets) {
         if (typeof asset === 'string' && asset.startsWith('/') && !fs.existsSync(path.join(publicRoot, asset.slice(1)))) {
-          warnings.push(`${relative(entry)}: photo asset not found: ${asset}`);
+          warnings.push(`${relative(entry)}: design asset not found: ${asset}`);
         }
       }
     }
@@ -93,10 +93,10 @@ for (const collection of ['writing', 'projects', 'research']) {
 for (const entry of entries.get('columns')) {
   if (!isDraft(entry)) addPath(entry, `/columns/${entry.data.slug || entrySlug(entry)}/`);
 }
-for (const entry of entries.get('photos')) {
+for (const entry of entries.get('design')) {
   if (isDraft(entry)) continue;
   if (!entry.data.slug) errors.push(`${relative(entry)}: missing slug`);
-  else addPath(entry, `/photos/${entry.data.slug}/`);
+  else addPath(entry, `/design/${entry.data.slug}/`);
 }
 
 const tagPaths = new Map();

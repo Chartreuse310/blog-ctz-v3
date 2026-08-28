@@ -3,14 +3,14 @@ const basePath = import.meta.env.BASE_URL.replace(/\/$/, '');
 const siteUrl = `${siteOrigin}${basePath}`;
 
 export const site = {
-  name: 'A Quiet Publication',
-  title: 'A Quiet Publication · 静态个人出版物模板',
-  description: '一个不绑定作者身份的写作、项目、研究与影像出版模板。',
+  name: 'Blog CTZ',
+  title: 'Blog CTZ · 沙楚子的分享',
+  description: '一个喜欢瞎折腾的设计师 👾 不定期的分享',
   url: siteUrl,
   author: {
-    name: 'Site Author',
-    bio: '这里放置作者简介、长期关注的问题和公开写作方向。',
-    email: '',
+    name: '沙楚子',
+    bio: '概念设计 / 中国建筑史 / Vibe Coding / ++',
+    email: 'ctz_3e0@163.com',
   },
   locale: 'zh-cn',
   locales: ['zh-cn', 'en'] as const,

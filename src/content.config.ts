@@ -62,8 +62,8 @@ const research = defineCollection({
   }),
 });
 
-const photos = defineCollection({
-  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/photos' }),
+const design = defineCollection({
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/design' }),
   schema: z.object({
     ...common,
     slug: z.string().regex(/^[^/?#]+$/),
@@ -81,4 +81,4 @@ const links = defineCollection({
   }),
 });
 
-export const collections = { writing, columns, projects, research, photos, links };
+export const collections = { writing, columns, projects, research, design, links };

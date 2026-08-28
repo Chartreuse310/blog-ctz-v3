@@ -16,7 +16,7 @@ https://liyuk.com/astro-fourfold/
 
 ## Short description
 
-A static-first personal publication theme for Astro with writing archives, columns, tags, projects, research notes, photo essays, search, favorites, RSS, and GitHub Pages support.
+A static-first personal publication theme for Astro with writing archives, columns, tags, projects, research notes, design galleries, search, favorites, RSS, and GitHub Pages support.
 
 ## Full description
 
@@ -28,7 +28,7 @@ The theme separates content types from reading paths:
 - columns for ordered, guided reading;
 - tags for lateral exploration;
 - projects and research for long-term work records;
-- photo essays for visual work;
+- design galleries for visual work;
 - start, search, favorites, and RSS for discovery and return visits.
 
 It is static-first and Markdown-first. Astro generates the pages, RSS, sitemap, robots, canonical metadata, Open Graph metadata, JSON-LD, and a static search index at build time. Browser JavaScript is intentionally limited to search, theme selection, local favorites, and link copying.
@@ -43,7 +43,7 @@ The starter contains no real author identity, private data, database, server run
 - Cross-content tags
 - Project lifecycle states
 - Versioned research notes
-- Photo essays
+- Design galleries
 - Static search index and query URLs
 - Browser-local favorites
 - Light/dark themes

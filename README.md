@@ -117,7 +117,7 @@ src/
 │   ├── columns/      专栏
 │   ├── projects/     项目
 │   ├── research/     研究
-│   ├── photos/       影像
+│   ├── design/       设计
 │   └── links/        友链
 ├── data/             站点配置、导航、UI 文案
 ├── layouts/          BaseLayout
@@ -155,7 +155,7 @@ src/
 /columns/      专栏
 /projects/     项目
 /research/     研究
-/photos/       影像
+/design/       设计
 /about/        关于
 /links/        友链
 /tags/         标签
@@ -203,7 +203,7 @@ draft: false
 
 文章通过 `column` 与 `columnOrder` 关联。专栏是连续阅读路径，标签是横向索引。
 
-### Project / Research / Photo / Link
+### Project / Research / Design / Link
 
 这些集合分别拥有自己的字段，但共享 `title`、`description`、`locale`、`draft`、`featured`、`translationKey` 等基础字段。完整约束见 `src/content.config.ts`。
 
