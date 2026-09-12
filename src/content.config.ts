@@ -64,11 +64,11 @@ const research = defineCollection({
 
 const design = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/design' }),
-  schema: z.object({
+  schema: ({ image }) => z.object({
     ...common,
     slug: z.string().regex(/^[^/?#]+$/),
-    cover: z.string().optional(),
-    photos: z.array(z.object({ src: z.string(), alt: z.string(), caption: z.string().optional() })).default([]),
+    cover: image().optional(),
+    photos: z.array(z.object({ src: image(), alt: z.string(), caption: z.string().optional() })).default([]),
   }),
 });
 

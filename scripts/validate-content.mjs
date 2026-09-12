@@ -48,9 +48,17 @@ for (const collection of collections) {
     if (collection === 'design') {
       const assets = [entry.data.cover, ...(Array.isArray(entry.data.photos) ? entry.data.photos.map((photo) => photo?.src) : [])].filter(Boolean);
       for (const asset of assets) {
-        if (typeof asset === 'string' && asset.startsWith('/') && !fs.existsSync(path.join(publicRoot, asset.slice(1)))) {
-          warnings.push(`${relative(entry)}: design asset not found: ${asset}`);
+        if (typeof asset !== 'string') continue;
+        if (asset.startsWith('/')) {
+          if (!fs.existsSync(path.join(publicRoot, asset.slice(1)))) warnings.push(`${relative(entry)}: public asset not found: ${asset}`);
+          continue;
         }
+        const directory = path.dirname(entry.file);
+        let found = fs.existsSync(path.resolve(directory, asset));
+        if (!found) {
+          try { found = fs.existsSync(path.resolve(directory, decodeURIComponent(asset))); } catch { found = false; }
+        }
+        if (!found) errors.push(`${relative(entry)}: asset not found: ${asset}`);
       }
     }
   }

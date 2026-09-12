@@ -1,9 +1,9 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getPublishedCollection, designPath } from '../../lib/content';
-import { assetPath } from '../../lib/urls';
+import { Image } from 'astro:assets';
 import Icon from '../../components/chrome/Icon.astro';
 const entries=await getPublishedCollection('design');
 ---
-<BaseLayout title="设计 · Design" description="对世界的观察与重构。"><header class="page-head container"><p class="eyebrow">Design</p><h1>观察与重构。</h1><p>对世界的观察与重构。</p></header><section class="container galleries">{entries.map((entry)=><a href={designPath(entry)}><div class="cover">{entry.data.cover ? <img src={assetPath(entry.data.cover)} alt={entry.data.title} /> : <span><Icon name="close" size="lg" /></span>}</div><h2>{entry.data.title}</h2><p>{entry.data.description}</p><small>{entry.data.photos.length} 张</small></a>)}</section></BaseLayout>
+<BaseLayout title="设计 · Design" description="对世界的观察与重构。"><header class="page-head container"><p class="eyebrow">Design</p><h1>观察与重构。</h1><p>对世界的观察与重构。</p></header><section class="container galleries">{entries.map((entry)=><a href={designPath(entry)}><div class="cover">{entry.data.cover ? <Image src={entry.data.cover} alt={entry.data.title} format="webp" widths={[400, 800]} sizes="(max-width: 42rem) 100vw, 560px" quality={78} /> : <span><Icon name="close" size="lg" /></span>}</div><h2>{entry.data.title}</h2><p>{entry.data.description}</p><small>{entry.data.photos.length} 张</small></a>)}</section></BaseLayout>
 <style>.page-head{padding:5rem 0 3rem}.page-head h1{font-size:clamp(3rem,8vw,6rem);line-height:.95;letter-spacing:-.07em;margin:.5rem 0}.page-head p{color:var(--muted)}.galleries{display:grid;grid-template-columns:repeat(2,1fr);gap:2rem}.galleries a{text-decoration:none}.cover{aspect-ratio:1.6;background:var(--soft);overflow:hidden}.cover img{width:100%;height:100%;object-fit:cover}.cover span{display:grid;place-items:center;height:100%;font-size:4rem;color:var(--accent)}.galleries h2{margin:.7rem 0 .1rem;font-size:1.5rem}.galleries p{color:var(--muted);margin:0}.galleries small{color:var(--accent)}@media(max-width:42rem){.galleries{grid-template-columns:1fr}}</style>
