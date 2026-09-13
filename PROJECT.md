@@ -1,8 +1,8 @@
-# Project · Fourfold
+# Project · Blog CTZ
 
 ## 项目定位
 
-Fourfold 是一个面向独立作者、工程师、研究者和创作者的静态个人出版物 starter。
+Blog CTZ 是基于 Fourfold 模板的个人出版物，面向独立作者、工程师、研究者和创作者。
 
 它要解决的不是“如何显示一篇 Markdown”，而是当个人内容开始积累后，如何让不同类型的作品仍然拥有清晰、可持续的关系：
 
@@ -14,19 +14,9 @@ Fourfold 是一个面向独立作者、工程师、研究者和创作者的静�
 - 开始页帮助新读者找到入口；
 - RSS、搜索和收藏支持长期回访。
 
-## 灵感与抽象范围
+## 灵感来源
 
-本项目研究了一个公开的编辑型个人出版物站点。源站最值得抽象的是一套“个人出版物”信息架构，而不是视觉复制：
-
-1. 内容类型与阅读方式分离：写作、项目、研究、设计是内容类型；专栏、标签、搜索和收藏是阅读方式。
-2. 首页同时承担品牌介绍、精选、最近更新和内容分区导流。
-3. 专栏是有篇序的阅读路径，不是普通分类。
-4. 标签是跨年份、跨专栏的横向索引。
-5. 项目有状态，研究有版本，内容类型拥有符合自身语义的元数据。
-6. 编辑感来自留白、编号、横线和文字层级，而不是装饰性组件。
-7. 静态 URL、RSS、sitemap 和长期归档让内容具备出版物的保存感。
-
-本项目不包含源站的文章、图片、品牌、个人信息或内部实现推断；所有示例内容均为占位内容。
+基于 Liyuk 设计的 Fourfold 模板，沿用其把写作、项目、研究和设计组织成可持续个人出版物的信息架构理念。站内所有内容为作者本人原创，转载请注明出处。
 
 ## 设计原则
 
@@ -46,9 +36,9 @@ Fourfold 是一个面向独立作者、工程师、研究者和创作者的静�
 
 评论、邮件订阅、登录、云端收藏、分析、CMS 都不是核心模板的一部分。它们应该由配置或独立组件接入，不污染内容层和静态构建层。
 
-### 5. 诚实的示例
+### 5. 内容归属
 
-模板示例只展示结构和能力，不模拟一个真实作者的经历、作品或社会关系。使用者开始发布前应该替换作者、域名、社交链接、许可证和示例内容。
+站内所有文章、项目、研究、设计均为作者本人原创。转载请注明出处，许可证见 `src/data/site.ts`。
 
 ## 用户模型
 
@@ -94,27 +84,7 @@ Fourfold 是一个面向独立作者、工程师、研究者和创作者的静�
 
 ## 页面截图
 
-以下截图来自本地开发服务器，展示的是中性示例内容，不包含任何真实作者资料：
-
-### 首页
-
-![首页预览](docs/screenshots/homepage.png)
-
-首页负责品牌定位、精选内容、最近更新和内容类型导流。
-
-### 文章详情
-
-![文章详情预览](docs/screenshots/article.png)
-
-文章页负责标题、摘要、日期、标签、收藏、复制链接、目录和正文阅读。
-
-### 搜索页
-
-![搜索页预览](docs/screenshots/search.png)
-
-搜索页支持标题、摘要、标签和正文匹配，并通过 `?q=` 保持可分享的搜索状态。
-
-> 截图是模板运行时预览，不是生产站点截图；发布前替换示例内容即可得到自己的页面。
+截图见线上站点：https://chartreuse310.github.io/blog-ctz-v3/
 
 ## 系统架构图
 
@@ -144,7 +114,6 @@ flowchart LR
     HTML[Static HTML]
     Feed[RSS]
     Map[Sitemap + robots]
-    Search[search-index.json]
     GH[GitHub Pages / CDN]
   end
 
@@ -158,11 +127,9 @@ flowchart LR
   Q --> Feed
   D --> Feed
   D --> Map
-  Q --> Search
   HTML --> GH
   Feed --> GH
   Map --> GH
-  Search --> GH
 ```
 
 ## 内容发布流程图
@@ -177,7 +144,7 @@ flowchart TD
   E -- 失败 --> F[修复类型或模板问题]
   F --> E
   E -- 通过 --> G[astro build]
-  G --> H[生成 HTML / RSS / sitemap / robots / search-index]
+  G --> H[生成 HTML / RSS / sitemap / robots]
   H --> I{部署目标}
   I --> J[GitHub Pages 项目路径]
   I --> K[自定义域名]
@@ -191,8 +158,7 @@ flowchart TD
 | Markdown 渲染 | 构建期 | 否 | 生成静态 HTML |
 | 标签/年份/专栏索引 | 构建期 | 否 | 从内容集合自动派生 |
 | RSS / sitemap / robots | 构建期 | 否 | 使用 `SITE_URL` 和 `BASE_PATH` |
-| 搜索索引 | 构建期 | 否 | 输出 `/search-index.json` |
-| 搜索交互 | 浏览器 | 否 | 当前为轻量匹配 |
+| 搜索交互 | 浏览器 | 否 | 内联匹配（body 文本写入 data-text 属性） |
 | 主题切换 | 浏览器 | 否 | CSS variables + localStorage |
 | 收藏 | 浏览器 | 否 | 当前仅保存在本地浏览器 |
 | 复制链接 | 浏览器 | 否 | Clipboard API 可用时启用 |
@@ -262,19 +228,19 @@ close        空画廊占位
 
 所有页面和组件都应优先使用这些语义 token，而不是写入孤立的颜色值。
 
-### Phase 1 · 内容迁移
+### Phase 1 · 内容迁移（已完成）
 
-- 将真实作者信息放入 `src/data/site.ts`。
-- 将现有文章迁移为 writing Markdown。
-- 为长期主题补充 column 与 columnOrder。
-- 清理示例数据，补充真实图片与 alt。
+- [x] 将真实作者信息放入 `src/data/site.ts`。
+- [x] 将现有文章迁移为 writing Markdown。
+- [x] 为长期主题补充 column 与 columnOrder。
+- [x] 清理示例数据，补充真实图片与 alt。
 
 ### Phase 2 · 出版质量（已完成）
 
-- 增加自动检查：重复 slug、重复 translationKey、非法标签和外链。
-- 为文章添加 JSON-LD `BlogPosting` 和基础 canonical/OG 元数据。
-- 为搜索增加 `/search-index.json`、URL query 参数和空状态基础。
-- 为写作索引增加静态分页。
+- [x] 增加自动检查：重复 slug、重复 translationKey、非法标签和外链。
+- [x] 为文章添加 JSON-LD `BlogPosting` 和基础 canonical/OG 元数据。
+- [x] 为搜索增加 URL query 参数和空状态基础（匹配内联到 data-text 属性）。
+- [x] 为写作索引增加静态分页。
 
 ### Phase 3 · 互动接入
 
@@ -305,4 +271,4 @@ close        空画廊占位
 
 ## 一句话说明
 
-> Fourfold 不是一个替你写作的博客，而是一套让长期写作更容易被组织、发现和继续阅读的个人出版物骨架。
+> Blog CTZ 是一个让长期写作更容易被组织、发现和继续阅读的个人出版物，基于 Fourfold 模板。

@@ -108,6 +108,7 @@ for (const entry of entries.get('design')) {
 }
 
 const tagPaths = new Map();
+// 与 src/lib/content.ts 的 tagSlug 保持一致；改这里务必同步改那边
 const tagSlug = (tag) => tag.toLowerCase().trim().replace(/[\\/?#%]+/g, '-').replace(/\s+/g, '-');
 for (const entry of entries.get('writing')) {
   if (isDraft(entry)) continue;

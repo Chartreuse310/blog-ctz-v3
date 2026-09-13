@@ -4,6 +4,7 @@
 :root { font-family: 'Iowan Old Style', 'Noto Serif SC', Georgia, serif; color-scheme: light dark; }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; } }
 body { margin: 0; background: var(--paper); color: var(--ink); font-size: 17px; line-height: 1.7; }
 a { color: inherit; text-underline-offset: 0.18em; }
 button, input { font: inherit; }
