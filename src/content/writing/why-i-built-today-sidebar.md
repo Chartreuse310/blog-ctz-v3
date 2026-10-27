@@ -7,7 +7,7 @@ publishedAt: 2026-10-27
 updatedAt: 2026-10-27
 author: "沙楚子"
 tags: [PKM, 交互设计]
-featured: false
+featured: true
 minutes: 3
 column: "play with AI"
 columnOrder: 2
